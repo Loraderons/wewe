@@ -1,26 +1,28 @@
 class Rectangle:
-
     lenght = None
     weight = None
-
     @staticmethod
-    def area_static(a, b=None):
-        if b == None:
-            return a ** 2
+    def area_static(a, b):
         return a * b
 
     @classmethod
-    def area_class(cls, a, b=None):
-        if b == None:
-            cls.lenght = a
-            return cls.area_static(cls.lenght)
+    def area_class(cls, a, b):
         cls.lenght = a
         cls.weight = b
         return cls.area_static(cls.lenght, cls.weight)
 
 
 class Square(Rectangle):
-    pass
+    lenght = None
+
+    @staticmethod
+    def area_static(a):
+        return a ** 2
+
+    @classmethod
+    def area_class(cls, a):
+        cls.lenght = a
+        return cls.area_static(cls.lenght)
 
 
 a = Square()
